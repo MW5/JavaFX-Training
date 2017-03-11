@@ -19,7 +19,7 @@ public class JavaFx_fun extends Application {
     public Stage primaryStage;
     public BorderPane rootLayout;
     public AnchorPane topBar;
-    public Canvas content;
+    public AnchorPane content;
     
     @Override
     public void start(Stage stage) throws Exception {
@@ -58,8 +58,9 @@ public class JavaFx_fun extends Application {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("View/Content.fxml"));
-            content = (Canvas) loader.load();
+            content = (AnchorPane) loader.load();
             ContentController controller = loader.getController();
+            controller.draw();
             rootLayout.setCenter(content);
         } catch (IOException e) {
             e.printStackTrace(System.out);
