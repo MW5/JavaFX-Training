@@ -20,14 +20,23 @@ public class JavaFx_fun extends Application {
     public BorderPane rootLayout;
     public AnchorPane topBar;
     public AnchorPane content;
+    private int points;
     
     @Override
     public void start(Stage stage) throws Exception {
         this.primaryStage = stage;
+        points = 0;
         stage.setTitle("JavaFX fun");
         initRootLayout();
         initTopBar();
         initContent();
+    }
+    public void setPoints(int points) {
+        this.points = points;
+        initTopBar();
+    }
+    public int getPoints() {
+        return points;
     }
     
     public void initRootLayout() {
@@ -50,6 +59,8 @@ public class JavaFx_fun extends Application {
             topBar = (AnchorPane) loader.load();
             TopBarController controller = loader.getController();
             rootLayout.setTop(topBar);
+            controller.setMain(this);
+            controller.showPoints(points);
         } catch (IOException e) {
             e.printStackTrace(System.out);
         }
@@ -60,8 +71,8 @@ public class JavaFx_fun extends Application {
             loader.setLocation(getClass().getResource("View/Content.fxml"));
             content = (AnchorPane) loader.load();
             ContentController controller = loader.getController();
-            controller.draw();
             rootLayout.setCenter(content);
+            controller.setMain(this);
         } catch (IOException e) {
             e.printStackTrace(System.out);
         }

@@ -2,7 +2,9 @@
 
 <?import java.net.URL?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane id="topBar" prefHeight="50.0" prefWidth="800.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx_fun.View.TopBarController">
     <stylesheets>
@@ -10,5 +12,7 @@
     </stylesheets>
    <children>
       <Button alignment="CENTER" contentDisplay="TOP" layoutX="718.0" layoutY="6.0" mnemonicParsing="false" onAction="#handleExitBtn" prefHeight="40.0" prefWidth="75.0" text="Exit" textAlignment="CENTER" AnchorPane.bottomAnchor="5.0" AnchorPane.topAnchor="5.0" />
+      <Text layoutX="14.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Points: " />
+      <Label fx:id="pointVal" layoutX="62.0" layoutY="17.0" text="0" />
    </children>
 </AnchorPane>
