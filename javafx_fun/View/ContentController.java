@@ -1,9 +1,5 @@
 package javafx_fun.View;
 
-import com.sun.scenario.effect.ImageData;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -14,13 +10,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx_fun.JavaFx_fun;
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
 
 
 /**
@@ -133,7 +126,16 @@ public class ContentController implements Initializable {
         drawTarget(target);
     }
     private void drawTarget(Circle target) {
-        gc.strokeOval(target.getCenterX()-target.getRadius()/2, target.getCenterY()-target.getRadius()/2
+        if (target.equals(target1)) {
+            gc.setFill(Color.BLUE);
+        } else if (target.equals(target2)) {
+            gc.setFill(Color.GREEN);
+        } else if (target.equals(target3)) {
+            gc.setFill(Color.RED);
+        } else if (target.equals(target4)) {
+            gc.setFill(Color.YELLOW);
+        }
+        gc.fillOval(target.getCenterX()-target.getRadius()/2, target.getCenterY()-target.getRadius()/2
             , target.getRadius(), target.getRadius());
     }
     
